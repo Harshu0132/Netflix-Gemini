@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import model from "../utils/googleGenerativeAi"
 import { API_OPTIONS } from "../utils/constant";
 import { addGeminiMovieResult } from "../utils/geminiSlice";
+import { toggleShowLoading } from "../utils/configSlice";
 
 const GeminiSearchBar = () => {
   const langKey = useSelector(store => store.config.lang)
@@ -12,6 +13,10 @@ const GeminiSearchBar = () => {
 
   const handleSearch = async () => {
     try {
+      if (searchRef.current.value.length === 0) return
+
+      dispatch(toggleShowLoading())
+
       const Query = `act like a movie recommendation system and suggest some movies for the query: ${searchRef.current.value}. Only give me names of 5 movies, comma separated like the example result should like given to you . Example Result: Gadar, Koi Mil Gaya, KGF, Chennai Express, Hera Phe,....`
 
       const result = await model.generateContent(Query)

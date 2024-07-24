@@ -6,7 +6,6 @@ import PlayTrailer from "./PlayTrailer";
 
 
 const Body = () => {
-
     const Browse = lazy(() => import("./Browse"))
 
     const appRouter = createBrowserRouter([
