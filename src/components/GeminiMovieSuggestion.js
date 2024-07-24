@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import MovieList from "./MovieList";
 import { MagnifyingGlass } from "react-loader-spinner";
-import { toggleShowLoading } from "../utils/configSlice";
+import { toggleShowLoading, toggleShowLoadingFalse } from "../utils/configSlice";
 import { useEffect } from "react";
 
 const GeminiMovieSuggestion = () => {
@@ -10,10 +10,8 @@ const GeminiMovieSuggestion = () => {
     const { showLoading } = useSelector(store => store.config)
 
     useEffect(() => {
-        geminiMovieResult && dispatch(toggleShowLoading())
-        return () => dispatch(toggleShowLoading())
+        (geminiMovieResult && showLoading) && dispatch(toggleShowLoading())
     }, [geminiMovieResult])
-
 
     if (showLoading) return (
         <div className="w-[80px] mx-auto mt-5">
@@ -29,11 +27,6 @@ const GeminiMovieSuggestion = () => {
             />
         </div>
     )
-
-
-
-
-
 
 
     return (

@@ -13,7 +13,7 @@ const configSlice = createSlice({
 
         toggleShowLoading: (state) => {
             state.showLoading = !state.showLoading
-        }
+        },
     }
 })
 
