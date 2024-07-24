@@ -3,3 +3,6 @@ dist
 
 # Parcel
 .parcel-cache
+
+# firebase
+.firebase

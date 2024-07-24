@@ -9,18 +9,14 @@ const MovieList = ({ title, movies }) => {
     if (movies.length === 0) return null
 
     const handleLeftClick = () => {
-        if (transformCount === 0) {
-            return
-        }
+        if (transformCount === 0) return
         scrollRef.current.style.transform = "translateX(" + (transformCount + 200) + "px)";
         setTransformCount(cnt => cnt + 200)
         scrollRef.current.style.transform = "transition: transform 1000ms ease";
 
     }
     const handleRightClick = () => {
-        if (transformCount === -3000) {
-            return
-        }
+        if ((800 - (transformCount)) === scrollRef.current.childNodes.length * 200) return
         scrollRef.current.style.transform = "translateX(" + (transformCount - 200) + "px)";
         setTransformCount(cnt => cnt - 200)
         scrollRef.current.style.transition = "transform 1000ms ease";

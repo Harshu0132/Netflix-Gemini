@@ -12,7 +12,7 @@ const GeminiSearchBar = () => {
 
   const handleSearch = async () => {
     try {
-      const Query = `act like a movie recommendation system and suggest some movies for the query: ${searchRef.current.value}. Only give me names of movies, comma separated like the example result should like given to you . Example Result: Gadar, Koi Mil Gaya, KGF, Chennai Express, Hera Phe,....`
+      const Query = `act like a movie recommendation system and suggest some movies for the query: ${searchRef.current.value}. Only give me names of 5 movies, comma separated like the example result should like given to you . Example Result: Gadar, Koi Mil Gaya, KGF, Chennai Express, Hera Phe,....`
 
       const result = await model.generateContent(Query)
       const response = await result.response

@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 // import Browse from "./Browse";
 import Login from "./Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PlayTrailer from "./PlayTrailer";
+
 
 const Body = () => {
 
@@ -18,6 +20,13 @@ const Body = () => {
                 <Suspense fallback={(<div>Loading........</div>)}>
                     <Browse />
                 </Suspense>
+            ,
+            // children: [
+            //     {
+            //         path: "/playVideo",
+            //         element: <PlayTrailer />
+            //     }
+            // ]
         },
     ])
     return (<RouterProvider router={appRouter} />)
