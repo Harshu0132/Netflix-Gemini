@@ -2,11 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import MovieList from "./MovieList";
 import { MagnifyingGlass } from "react-loader-spinner";
 import { toggleShowLoading } from "../utils/configSlice";
+import { useEffect } from "react";
 
 const GeminiMovieSuggestion = () => {
     const dispatch = useDispatch()
     const { geminiMovieNames, geminiMovieResult } = useSelector(store => store.gemini)
     const { showLoading } = useSelector(store => store.config)
+
+    useEffect(() => {
+        geminiMovieResult && dispatch(toggleShowLoading())
+        return () => dispatch(toggleShowLoading())
+    }, [geminiMovieResult])
+
 
     if (showLoading) return (
         <div className="w-[80px] mx-auto mt-5">
@@ -24,15 +31,22 @@ const GeminiMovieSuggestion = () => {
     )
 
 
-    !geminiMovieResult ? {} : dispatch(toggleShowLoading())
+
+
+
 
 
     return (
-        <div className="bg-black  mt-3 px-4 rounded-lg w-10/12 mx-auto text-white bg-opacity-70">
-            {
-                geminiMovieNames.map((movie, index) => <MovieList key={movie} title={movie} movies={geminiMovieResult[index]} />)
+        <>
+            {geminiMovieResult &&
+                <div className="bg-black  mt-3 px-4 rounded-lg w-10/12 mx-auto text-white bg-opacity-70">
+                    {
+                        geminiMovieNames.map((movie, index) => <MovieList key={movie} title={movie} movies={geminiMovieResult[index]} />)
+                    }
+                </div>
             }
-        </div>
+        </>
+
     )
 }
 
