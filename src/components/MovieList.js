@@ -35,7 +35,7 @@ const MovieList = ({ title, movies }) => {
                     <div className="flex" id="listOfCards" ref={scrollRef}>
                         {
                             movies.map(movie =>
-                                <MovieCard key={movie.id} posterPath={movie.poster_path} />
+                                <MovieCard key={movie.id} posterPath={movie.poster_path} movie={movie} />
                             )
                         }
                     </div>

@@ -20,14 +20,11 @@ const Body = () => {
                 <Suspense fallback={(<div>Loading........</div>)}>
                     <Browse />
                 </Suspense>
-            ,
-            // children: [
-            //     {
-            //         path: "/playVideo",
-            //         element: <PlayTrailer />
-            //     }
-            // ]
         },
+        {
+            path: "/playVideo",
+            element: <PlayTrailer />
+        }
     ])
     return (<RouterProvider router={appRouter} />)
 }
