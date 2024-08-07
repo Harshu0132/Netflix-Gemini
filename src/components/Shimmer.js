@@ -1,6 +1,6 @@
 export const ShimmerMainContainer = () => {
     return (
-        <div className="w-[80vw] mx-auto h-screen md:pt-16 sm:pt-0">
+        <div className="w-[80vw] mx-auto h-[90vh] pt-16 ">
             <div className="bg-gray-950 rounded-lg h-full flex  items-center">
                 <div className="w-full h-[40vh] mx-8">
                     <div className="bg-slate-700 w-[20vw] h-8 my-4 rounded-md"></div>

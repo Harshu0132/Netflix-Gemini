@@ -12,4 +12,5 @@ const language = {
         GptSearchPlaceholder: "¿Qué película te gustaría buscar?"
     }
 }
+
 export default language;
